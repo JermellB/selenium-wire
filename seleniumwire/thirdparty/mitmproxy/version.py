@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+from security import safe_command
 
 VERSION = "5.3.0"
 PATHOD = "pathod " + VERSION
@@ -22,8 +23,7 @@ def get_dev_version() -> str:
     try:
         # Check that we're in the mitmproxy repository: https://github.com/mitmproxy/mitmproxy/issues/3987
         # cb0e3287090786fad566feb67ac07b8ef361b2c3 is the first mitmproxy commit.
-        subprocess.run(
-            ['git', 'cat-file', '-e', 'cb0e3287090786fad566feb67ac07b8ef361b2c3'],
+        safe_command.run(subprocess.run, ['git', 'cat-file', '-e', 'cb0e3287090786fad566feb67ac07b8ef361b2c3'],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             cwd=here,
