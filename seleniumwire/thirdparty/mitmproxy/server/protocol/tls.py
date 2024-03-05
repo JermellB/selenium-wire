@@ -413,7 +413,7 @@ class TlsLayer(base.Layer):
                     # and mitmproxy would enter TCP passthrough mode, which we want to avoid.
                     alpn = [
                         x for x in self._client_hello.alpn_protocols if
-                        not (x.startswith(b"h2-") or x.startswith(b"spdy"))
+                        not x.startswith((b"h2-", b"spdy"))
                     ]
                 if alpn and b"h2" in alpn and not self.config.options.http2:
                     alpn.remove(b"h2")

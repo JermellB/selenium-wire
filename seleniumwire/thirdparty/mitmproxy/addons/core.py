@@ -54,7 +54,7 @@ class Core:
                 )
         if "mode" in updated:
             mode = opts.mode
-            if mode.startswith("reverse:") or mode.startswith("upstream:"):
+            if mode.startswith(("reverse:", "upstream:")):
                 try:
                     server_spec.parse_with_mode(mode)
                 except ValueError as e:
