@@ -45,7 +45,7 @@ class ASWBXMLByteQueue(Queue):
             self.bytesEnqueued += 1
 
 
-        logging.debug("Array byte count: %d, enqueued: %d" % (self.qsize(), self.bytesEnqueued))
+        logging.debug("Array byte count: %d, enqueued: %d", self.qsize(), self.bytesEnqueued)
 
     """
     Created to debug the dequeueing of bytes

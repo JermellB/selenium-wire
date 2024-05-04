@@ -837,7 +837,7 @@ class ASWBXML:
 		# Public Identifier is ignored
 		publicId = wbXMLBytes.dequeueMultibyteInt()
 		
-		logging.debug("Version: %d, Public Identifier: %d" % (version, publicId))
+		logging.debug("Version: %d, Public Identifier: %d", version, publicId)
 		
 		# Character set
 		# Currently only UTF-8 is supported, throw if something else
@@ -901,4 +901,4 @@ class ASWBXML:
 				if (hasContent):
 					currentNode = newNode
 
-		logging.debug("Total bytes dequeued: %d" % wbXMLBytes.bytesDequeued)
+		logging.debug("Total bytes dequeued: %d", wbXMLBytes.bytesDequeued)

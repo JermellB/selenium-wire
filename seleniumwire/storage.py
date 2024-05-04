@@ -89,7 +89,7 @@ class RequestStorage:
         indexed_request = self._get_indexed_request(request_id)
 
         if indexed_request is None:
-            log.debug('Cannot save response as request %s is no longer stored' % request_id)
+            log.debug('Cannot save response as request %s is no longer stored', request_id)
             return
 
         request_dir = self._get_request_dir(request_id)
@@ -128,7 +128,7 @@ class RequestStorage:
         indexed_request = self._get_indexed_request(request_id)
 
         if indexed_request is None:
-            log.debug('Cannot save HAR entry as request %s is no longer stored' % request_id)
+            log.debug('Cannot save HAR entry as request %s is no longer stored', request_id)
             return
 
         request_dir = self._get_request_dir(request_id)
