@@ -86,6 +86,6 @@ class ProxyConfig:
                     "Invalid certificate format: %s" % cert
                 )
         m = options.mode
-        if m.startswith("upstream:") or m.startswith("reverse:"):
+        if m.startswith(("upstream:", "reverse:")):
             _, spec = server_spec.parse_with_mode(options.mode)
             self.upstream_server = spec
