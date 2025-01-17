@@ -42,6 +42,7 @@ setup(
         'pysocks>=1.7.1',
         'selenium>=3.4.0',
         'wsproto>=0.14',
+        "defusedxml==0.7.1",
     ],
     extras_require={
         ':sys_platform == "win32"': [
