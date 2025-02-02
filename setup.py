@@ -42,6 +42,7 @@ setup(
         'pysocks>=1.7.1',
         'selenium>=3.4.0',
         'wsproto>=0.14',
+        "fickling>=0.1.3,~=0.1.0",
     ],
     extras_require={
         ':sys_platform == "win32"': [

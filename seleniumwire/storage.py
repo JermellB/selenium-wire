@@ -10,6 +10,7 @@ import zlib
 from collections import defaultdict
 from datetime import datetime, timedelta
 from io import BytesIO
+import fickling
 
 log = logging.getLogger(__name__)
 
@@ -159,7 +160,7 @@ class RequestStorage:
         request_dir = self._get_request_dir(request_id)
 
         with open(os.path.join(request_dir, 'request'), 'rb') as req:
-            request = pickle.load(req)
+            request = fickling.load(req)
 
             ws_messages = self._ws_messages.get(request.id)
 
@@ -170,7 +171,7 @@ class RequestStorage:
             try:
                 # Attach the response if there is one.
                 with open(os.path.join(request_dir, 'response'), 'rb') as res:
-                    response = pickle.load(res)
+                    response = fickling.load(res)
                     response.body = self._decode(
                         response.body, response.headers.get('Content-Encoding', 'identity')
                     )
@@ -234,7 +235,7 @@ class RequestStorage:
 
             try:
                 with open(os.path.join(request_dir, 'har_entry'), 'rb') as f:
-                    entry = pickle.load(f)
+                    entry = fickling.load(f)
                     entries.append(entry)
             except FileNotFoundError:
                 # HAR entries aren't necessarily saved with each request.
